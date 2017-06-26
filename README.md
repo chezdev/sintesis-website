@@ -1,7 +1,7 @@
-### [Sintesis Website](sintesisproducciones.com) 
+### [Sintesis Website](http://sintesisproducciones.com) 
 Based on [Start Bootstrap](http://startbootstrap.com/) - [Creative](http://startbootstrap.com/template-overviews/creative/).
 
-### [Beta](sintesisproducciones.com/index_beta.html)
+### [Beta](http://sintesisproducciones.com/index_beta.html)
 
 ### Build process
 Implemented using gulp. 
