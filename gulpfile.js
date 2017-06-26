@@ -6,6 +6,8 @@ var cleanCSS = require('gulp-clean-css');
 var rename = require("gulp-rename");
 var uglify = require('gulp-uglify');
 var pkg = require('./package.json');
+var gutil = require('gulp-util');
+var ftp = require('gulp-ftp');
 
 // Set the banner content
 var banner = ['/*!\n',
@@ -36,6 +38,21 @@ gulp.task('minify-css', ['less'], function() {
         .pipe(browserSync.reload({
             stream: true
         }))
+});
+
+// deploy 
+gulp.task('deploy', function () {
+    return gulp.src('css/*')
+        .pipe(ftp({
+            host: '',
+            user: '',
+            pass: '',
+            remotePath: '/css'
+        }))
+        // you need to have some kind of stream after gulp-ftp to make sure it's flushed 
+        // this can be a gulp plugin, gulp.dest, or any kind of stream 
+        // here we use a passthrough stream 
+        .pipe(gutil.noop());
 });
 
 // Minify JS
